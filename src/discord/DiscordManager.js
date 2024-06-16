@@ -52,6 +52,8 @@ class DiscordManager extends CommunicationBridge {
       event.once
         ? client.once(event.name, (...args) => event.execute(...args))
         : client.on(event.name, (...args) => event.execute(...args));
+
+      require("./other/statsChannel.js");
     }
 
     process.on("SIGINT", async () => {
